@@ -1,0 +1,26 @@
+Dataset Schema
+--------------
+
+transaction_id : STRING
+    Unique identifier for each transaction (e.g., TX00001)
+
+date : DATE
+    Date of the transaction (YYYY-MM-DD)
+
+customer_id : STRING
+    Unique identifier for each customer (e.g., CUST0263)
+
+amount : FLOAT
+    Monetary value of the transaction
+
+category : STRING
+    Spending category (e.g., Electronics, Food, Utilities)
+
+payment_method : STRING
+    Type of payment used (e.g., Wallet, Card, Debit)
+
+description : STRING
+    Text description of the transaction
+
+fraud_risk : INTEGER
+    Fraud label (0 = Not Fraudulent, 1 = Fraudulent)
