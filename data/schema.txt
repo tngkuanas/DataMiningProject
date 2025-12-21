@@ -1,26 +1,55 @@
-Dataset Schema
---------------
+# Data Dictionary for Synthetic Fraud Detection Dataset
 
-transaction_id : STRING
-    Unique identifier for each transaction (e.g., TX00001)
+This document describes the schema for the generated `synthetic_fraud_dataset.csv` file. The dataset is designed to simulate financial transactions with features relevant for fraud detection, incorporating both rule-based and AI-generated patterns.
 
-date : DATE
-    Date of the transaction (YYYY-MM-DD)
+## A. Transaction-Level Numerical Features
 
-customer_id : STRING
-    Unique identifier for each customer (e.g., CUST0263)
+| Feature Name                     | Description                                                                 | Data Type |
+| :------------------------------- | :-------------------------------------------------------------------------- | :-------- |
+| `transaction_id`                 | Unique identifier for each transaction.                                     | String    |
+| `timestamp`                      | Date and time of the transaction.                                           | Datetime  |
+| `customer_id`                    | Unique identifier for the customer.                                         | String    |
+| `transaction_amount`             | The monetary value of the transaction.                                      | Float     |
+| `account_balance_before`         | Customer's account balance immediately before the transaction.              | Float     |
+| `account_balance_after`          | Customer's account balance immediately after the transaction.               | Float     |
+| `transaction_frequency_24h`      | Number of transactions by the customer in the last 24 hours.                | Integer   |
+| `avg_transaction_amount_7d`      | Average transaction amount by the customer in the last 7 days.              | Float     |
+| `num_failed_transactions_7d`     | Number of failed transactions by the customer in the last 7 days.           | Integer   |
+| `time_since_last_transaction_hr` | Time elapsed (in hours) since the customer's previous transaction.          | Float     |
+| `transaction_hour`               | Hour of the day (0-23) when the transaction occurred.                       | Integer   |
+| `is_weekend`                     | Binary flag: `1` if the transaction occurred on a weekend, `0` otherwise.   | Integer   |
 
-amount : FLOAT
-    Monetary value of the transaction
+## B. User / Account Features
 
-category : STRING
-    Spending category (e.g., Electronics, Food, Utilities)
+| Feature Name             | Description                                                                 | Data Type |
+| :----------------------- | :-------------------------------------------------------------------------- | :-------- |
+| `account_age_days`       | Age of the customer's account in days at the time of the transaction.       | Integer   |
+| `user_risk_score`        | A simulated risk score (0-1) associated with the customer, which updates dynamically based on fraud history. | Float     |
+| `num_devices_used`       | Number of unique device types the customer has used.                        | Integer   |
+| `num_countries_used`     | Number of unique countries the customer has transacted from.                | Integer   |
+| `previous_fraud_count`   | Cumulative count of previous fraudulent transactions associated with the customer. | Integer   |
+| `kyc_verified`           | Binary flag: `1` if the customer's KYC (Know Your Customer) is verified, `0` otherwise. | Integer   |
 
-payment_method : STRING
-    Type of payment used (e.g., Wallet, Card, Debit)
+## C. Categorical / Contextual Features
 
-description : STRING
-    Text description of the transaction
+| Feature Name         | Description                                                                 | Data Type |
+| :------------------- | :-------------------------------------------------------------------------- | :-------- |
+| `transaction_type`   | Type of the transaction (e.g., 'transfer', 'online purchase', 'withdrawal'). | String    |
+| `merchant_category`  | Category of the merchant involved in the transaction.                       | String    |
+| `device_type`        | Type of device used for the transaction (e.g., 'mobile', 'desktop').         | String    |
+| `location_match`     | Binary flag: `1` if the transaction's country matches the customer's usual country, `0` otherwise. | Integer   |
+| `payment_channel`    | Channel used for payment (e.g., 'bank', 'e-wallet', 'card').                | String    |
 
-fraud_risk : INTEGER
-    Fraud label (0 = Not Fraudulent, 1 = Fraudulent)
+## D. Textual Features (AI-Generated)
+
+| Feature Name              | Description                                                                 | Data Type |
+| :------------------------ | :-------------------------------------------------------------------------- | :-------- |
+| `transaction_description` | Short, AI-generated description of the transaction.                         | String    |
+| `merchant_name`           | AI-generated name of the merchant.                                          | String    |
+| `customer_support_note`   | Optional AI-generated note from customer support regarding the transaction. | String    |
+
+## Target Variable
+
+| Feature Name | Description                                                                 | Data Type |
+| :----------- | :-------------------------------------------------------------------------- | :-------- |
+| `is_fraud`   | Binary target variable: `1` if the transaction is fraudulent, `0` otherwise. | Integer   |
