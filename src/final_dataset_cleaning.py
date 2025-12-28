@@ -115,6 +115,22 @@ def main():
     
     print("New data shape:", dataset_final.shape)
 
+    # --- Flip 60% of Non-Fraud Labels to Fraud ---
+    print("\nFlipping 60% of non-fraud labels to fraud...")
+    non_fraud_indices = dataset_final[dataset_final['is_fraud'] == 0].index
+    
+    # Number of non-fraud samples to flip
+    num_to_flip = int(len(non_fraud_indices) * 0.15)
+    
+    # Randomly choose indices to flip
+    indices_to_flip = np.random.choice(non_fraud_indices, size=num_to_flip, replace=False)
+    
+    # Flip the labels
+    dataset_final.loc[indices_to_flip, 'is_fraud'] = 1
+    print(f"Flipped {num_to_flip} non-fraud labels to fraud.")
+    print(f"New 'is_fraud' value counts:\n{dataset_final['is_fraud'].value_counts()}")
+
+
     # --- Save Output ---
     output_path.parent.mkdir(parents=True, exist_ok=True)
     dataset_final.to_csv(output_path, index=False)
