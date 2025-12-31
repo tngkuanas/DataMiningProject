@@ -210,9 +210,9 @@ columns = [
 
 df = pd.DataFrame(final_rows, columns=columns)
 
-data_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
-os.makedirs(data_dir, exist_ok=True)
-output_path = os.path.join(data_dir, 'synthetic_fraud_dataset.csv')
+output_dir = "data/raw"
+os.makedirs(output_dir, exist_ok=True)
+output_path = os.path.join(output_dir, 'synthetic_fraud_dataset.csv')
 
 df.to_csv(output_path, index=False)
 
