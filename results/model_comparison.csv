@@ -1,0 +1,7 @@
+model,description,accuracy,precision,recall,f1_score,roc_auc
+Decision Tree,"A standard Decision Tree classifier. Hyperparameters: {'random_state': 42, 'class_weight': 'balanced', 'max_depth': 10}",0.9631043256997456,0.7818181818181819,0.7166666666666667,0.7478260869565218,0.8469123048668503
+Random Forest,"An ensemble of Decision Trees. Hyperparameters: {'n_estimators': 100, 'random_state': 42, 'class_weight': 'balanced', 'max_depth': 10}",0.9681933842239184,0.8888888888888888,0.6666666666666666,0.7619047619047619,0.9638659320477504
+XGBoost,"A gradient boosting framework. Hyperparameters: {'random_state': 42, 'eval_metric': 'logloss', 'scale_pos_weight': np.float64(12.092857142857143), 'n_estimators': 100}",0.9694656488549618,0.875,0.7,0.7777777777777778,0.9656565656565655
+Logistic Regression,"A linear model for binary classification. Includes StandardScaler. Hyperparameters: {'random_state': 42, 'class_weight': 'balanced', 'solver': 'liblinear'}",0.9529262086513997,0.676923076923077,0.7333333333333333,0.704,0.8870293847566575
+K-Nearest Neighbors,A non-parametric method using distance to classify. Hyperparameters: {'n_neighbors': 5},0.9567430025445292,1.0,0.4333333333333333,0.6046511627906976,0.8541322314049586
+Neural Network (MLP),"A Multi-Layer Perceptron classifier. Hyperparameters: {'hidden_layer_sizes': (100, 50), 'random_state': 42, 'max_iter': 500, 'early_stopping': True}",0.9669211195928753,0.9047619047619048,0.6333333333333333,0.7450980392156863,0.9504361799816345

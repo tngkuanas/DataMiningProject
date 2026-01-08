@@ -1,12 +1,6 @@
-google-generativeai==0.8.5
-google-ai-generativelanguage==0.6.15
-pandas==2.2.2
+scikit-learn
+pandas
 numpy
 matplotlib
 seaborn
-scikit-learn
-python-docx
-fpdf
-tqdm
-python-dotenv
-xgboost
+imbalanced-learn
