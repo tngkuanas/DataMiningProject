@@ -1,2 +1,0 @@
-model,accuracy,precision,recall,f1_score,roc_auc
-Random Forest Model A,0.8541666666666666,1.0,0.3269230769230769,0.4927536231884058,0.7009001636661212
